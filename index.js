@@ -9,7 +9,7 @@ const app = express();
 app.get('/', (req, res) => {
     res.status(200).send(
         {
-            'message': 'Welcome to your Docker Express App.'
+            'message': 'Welcome to your Docker Express App. '
         }
     );
 });
