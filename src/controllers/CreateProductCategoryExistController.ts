@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { prismaClient } from "../database/prismaClient";
 
+//Criar produto com categoria existente
 export class CreateProductCategoryExistController{
   async handle(request: Request, response: Response) {
     const { name, price, bar_code, id_category } = request.body;

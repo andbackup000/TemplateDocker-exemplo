@@ -26,5 +26,7 @@ services:
             - postgres-compose
         volumes:
             - ./.docker/data/pgadmin:/root/.pgadmin
+
+
             
             
