@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { prismaClient } from "../database/prismaClient";
+import { prismaClient } from "../../database/prismaClient";
 
 //Relacionar categoria existente e produto existe
 export class CreateProductCategoryController {

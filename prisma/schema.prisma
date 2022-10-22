@@ -12,12 +12,14 @@ datasource db {
 }
 
 model User {
-    id        String   @id @default(uuid())
-    name      String
-    email     String   @unique
-    password  String
-    create_at DateTime @default(now())
-    update_at DateTime @updatedAt
+    id             String           @id @default(uuid())
+    name           String
+    email          String           @unique
+    password       String
+    create_at      DateTime         @default(now())
+    update_at      DateTime         @updatedAt
+    UserPermitions UserPermitions[]
+    UsersRules     UsersRules[]
 
     @@map("users")
 }
@@ -41,6 +43,24 @@ model Category {
     @@map("categories")
 }
 
+model Permition {
+    id              String            @id @default(uuid())
+    name            String
+    UserPermitions  UserPermitions[]
+    PermitionsRules PermitionsRules[]
+
+    @@map("permitions")
+}
+
+model Rules {
+    id              String            @id @default(uuid())
+    name            String
+    PermitionsRules PermitionsRules[]
+    UsersRules      UsersRules[]
+
+    @@map("rules")
+}
+
 model ProductCategory {
     id          String   @id @default(uuid())
     id_product  String
@@ -49,4 +69,34 @@ model ProductCategory {
     category    Category @relation(fields: [id_category], references: [id])
 
     @@map("products_categories")
+}
+
+model UserPermitions {
+    id           String    @id @default(uuid())
+    id_user      String
+    user         User      @relation(fields: [id_user], references: [id])
+    id_permition String
+    permition    Permition @relation(fields: [id_permition], references: [id])
+
+    @@map("users_permitions")
+}
+
+model PermitionsRules {
+    id           String    @id @default(uuid())
+    id_rules     String
+    rules        Rules     @relation(fields: [id_rules], references: [id])
+    id_permition String
+    permition    Permition @relation(fields: [id_permition], references: [id])
+
+    @@map("rules_permitions")
+}
+
+model UsersRules {
+    id       String @id @default(uuid())
+    id_user  String
+    user     User   @relation(fields: [id_user], references: [id])
+    id_rules String
+    rules    Rules  @relation(fields: [id_rules], references: [id])
+
+    @@map("users_rules")
 }

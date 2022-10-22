@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { prismaClient } from "../database/prismaClient";
-import { AppError } from "../errors/AppError";
+import { prismaClient } from "../../database/prismaClient";
+import { AppError } from "../../errors/AppError";
 
 export class CreateUserController {
   async handle(request: Request, response: Response) {

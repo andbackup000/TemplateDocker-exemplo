@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { prismaClient } from "../database/prismaClient";
-import { AppError } from "../errors/AppError";
+import { prismaClient } from "../../database/prismaClient";
+import { AppError } from "../../errors/AppError";
 
 //Criar produto
 export class CreateProductController {
