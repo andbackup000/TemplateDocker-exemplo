@@ -1,7 +1,7 @@
 import "express-async-errors";
 import express, { Router, NextFunction, Request, Response } from "express"
 import { AppError } from "./errors/AppError";
-import { router } from "./routes";
+import { routes } from  "./routes"
 
 const PORT = 4003;
 const HOST = '0.0.0.0';
@@ -9,7 +9,7 @@ const HOST = '0.0.0.0';
 const app = express();
 
 app.use(express.json());
-app.use(router);
+app.use(routes);
 
 app.use(
     (err: Error, request: Request, response: Response, next: NextFunction) => {
