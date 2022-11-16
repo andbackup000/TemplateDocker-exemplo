@@ -3,6 +3,6 @@ import { userRoutes } from "./users.routes";
 
 const routes = Router();
 
-routes.post("/users", userRoutes);
+routes.use("/users", userRoutes);
 
 export { routes }

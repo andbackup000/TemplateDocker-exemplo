@@ -1,4 +1,7 @@
 import "express-async-errors";
+import "reflect-metadata";
+import "dotenv";
+import "./shared/container"
 import express, { Router, NextFunction, Request, Response } from "express"
 import { AppError } from "./errors/AppError";
 import { routes } from  "./routes"
